@@ -2,7 +2,7 @@
 ## I.	Tổng quan
 ### 1.	Giới thiệu:
  Trong những năm gần đây, trí tuệ nhân tạo (AI) và Mạng đối nghịch tạo sinh (GAN) đã phát triển mạnh mẽ, mang lại nhiều đột phá trong nhiều lĩnh vực khác nhau. Anycost GAN là một biến thể tiên tiến của mô hình GAN, có khả năng tối ưu hóa hiệu suất mà không ảnh hưởng đến chất lượng hình ảnh.
-###2.	Mục tiêu:
+### 2.	Mục tiêu:
 -	Nghiên cứu nguyên lý hoạt động của mô hình Anycost GAN.
 -	Xây dựng một hệ thống tổng hợp và chỉnh sửa ảnh dựa trên mô hình này.
 -	Ứng dụng mô hình Anycost GAN vào trong việc chỉnh sửa khuôn mặt, tạo hình ảnh giả lập, và hỗ trợ trong các chuyên ngành liên quan.
