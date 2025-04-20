@@ -14,3 +14,5 @@ Anycost GAN đạt được điều này bằng cách áp dụng ba kỹ thuật
 -	Sub-network Sampling (Lấy mẫu mạng con): Mạng chính có thể hoạt động với nhiều kích thước khác nhau bằng cách vô hiệu hóa một số phần trong kiến trúc mạng.
 -	Weight Sharing (Chia sẻ trọng số): Các mạng con chia sẻ trọng số với mạng lớn nhất, giúp tiết kiệm tài nguyên khi huấn luyện và giảm chi phí bộ nhớ.
 -	Progressive Training (Huấn luyện tiến hóa): Mạng được huấn luyện với nhiều cấu hình khác nhau để đảm bảo rằng cả mô hình lớn và nhỏ đều có thể tạo ra kết quả tốt.
+## II. Tài liệu tham khảo
+[anycostgan.pdf](https://github.com/user-attachments/files/19825304/anycostgan.pdf)
