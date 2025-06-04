@@ -364,6 +364,31 @@ class FaceEditor(QMainWindow):
             edited_code[:, :n_style_to_change] = \
                 edited_code[:, :n_style_to_change] \
                 + self.attr_sliders[direction_name].value() * self.direction_dict[direction_name] / 100 * max_value
+        
+        def debug_attribute(attr_name, max_val, edited_code):
+            val = self.attr_sliders[attr_name].value()
+            direction = self.direction_dict[attr_name]
+            org_latent = self.org_latent_code
+
+            print(f"========== DEBUG: THANH TRƯỢT {attr_name.upper()} ==========")
+            print(f"Giá trị thanh trượt {attr_name}: {val}")
+            print(f"Giá trị tối đa chỉnh sửa: {max_val}")
+            print(f"Kích thước hướng chỉnh sửa: {direction.shape}")
+            print(f"Hướng chỉnh sửa (5 chiều đầu tiên): {direction[0, 0, :5]}")
+            print(f"Latent code gốc (5 chiều đầu tiên): {org_latent[0, 0, :5]}")
+            print(f"Latent code đã chỉnh sửa (5 chiều đầu tiên): {edited_code[0, 0, :5]}")
+            delta = edited_code - org_latent
+            print(f"Hiệu chỉnh latent (5 chiều đầu tiên): {delta[0, 0, :5]}")
+            print("===========================================\n")
+
+        # Gọi debug cho 2 thuộc tính
+        debug_attribute('smiling', 0.6, edited_code)
+        #debug_attribute('young', 0.6, edited_code)
+        #debug_attribute('wavy hair', 0.6, edited_code)
+        #debug_attribute('gray hair', 0.6, edited_code)
+        #debug_attribute('blonde hair', 0.6, edited_code)
+        #debug_attribute('eyeglass', 0.6, edited_code)
+        #debug_attribute('mustache', 0.6, edited_code)
         self.input_kwargs['styles'] = edited_code
         if not force_full_g:
             set_uniform_channel_ratio(self.generator, self.anycost_channel)
@@ -372,6 +397,7 @@ class FaceEditor(QMainWindow):
         worker = Worker(self.generate_image)
         worker.signals.result.connect(self.after_slider_update)
         self.thread_pool.start(worker)
+        
 
     def after_slider_update(self, ret):
         edited, used_time = ret
